@@ -2,8 +2,68 @@
 <html>
     <head>
         <title>Title</title>
+        <link rel="stylesheet" href="style.css">
+        <!-- <style>
+            *{color:
+                 red;}
+            h1,p{
+                color: rgb(72, 0, 255);
+            }
+            
+            p:hover{
+                color: green;
+                text-decoration: overline;
+            }
+            table{
+                width: 100%;
+                border-collapse: collapse;
+            }
+            img{
+                border: 20px solid rgb(34, 196, 56);
+                border-radius: 10px;
+            }
+            .cat{
+                border: 20px solid rgb(47, 34, 196);
+                border-radius: 50%;
+            }
+            .webdev{
+                border: 20px solid rgb(212, 23, 159);
+                border-radius: 10px;
+            }
+            #catId{
+                border: 20px solid rgb(196, 180, 34);
+                border-radius: 50%;
+            }
+            li{
+                color: rgb(34, 196, 56);
+                font-size: large;
+                text-decoration: line-through;
+            }
+        </style>  -->
+
     </head>
     <body style="background-color: lightpink;">
+        
+        <h1 id="heding1" style="background-color: blue;">HTML Basics</h1>
+        <h1 style="color: #c72b2b;">heading 1</h1>
+        <h1 style="color: #c72b2b;">heading 1</h1>
+        <h1>heading 1</h1>
+        <h1>heading 1</h1>
+        <h1>heading 1</h1>
+        <h1>heading 1</h1>
+
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras da
+
+        </p>
+        <p>pargraph 1</p>
+        <p>pargraph 1</p>
+        <p>pargraph 1</p>
+        <p>pargraph 1</p>
+        <p>pargraph 1</p>
+        
+
+
+
         <form>
             <fieldset>
                 <legend>Personal Information</legend>
@@ -34,7 +94,7 @@
             </tr>
         </table>
 
-        <h1 id="heding1" style="background-color: blue;">HTML Basics</h1>
+        
         <p style="color: blueviolet;"> Its a markup language. We will cover following topics:
             <ol type="I">
                 <li>Text tags</li>
@@ -47,9 +107,12 @@
         </p>
 
         <img src="https://web.dev/static/images/learn-header_720.png" width="300",height="200"
-        alt="An image of web dev tools" id="image1">
-        <a href="https://web.dev/static/images/learn-header_720.png"><img src="cat.jpg"></a>
+        alt="An image of web dev tools" id="image1" class="webdev">
+        <a href="https://web.dev/static/images/learn-header_720.png"><img src="cat.jpg" class="cat" id="catId"></a>
         <br>
+        <img src="data:image/jpeg;base64,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"
+        alt="An image of web dev tools" width="300",height="200"
+    >
         Hello! Week 2 Tutorial!
         <br>
         Agile Web
