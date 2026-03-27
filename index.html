@@ -3,31 +3,34 @@
 <head>
     <title>Sign-up Form</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
     </head>
 
 <body>
     <div id="halfPage" class="container">
-        <h2 class="class1">Group project sign-up</h2>
-        <form action="">
-            <label for="groupMembers" class="form-label">Number of members:</label>
-            <input type="number" name="grpMembers" id="groupMembers" placeholder="Enter number of group members" min="1"
-                max="4" /><br /><br />
-            <label for="student1" class="form-label">Student 1:</label>
-            <input type="number" name="Std1" id="student1"" /><br /><br />
-            <label for=" student2" class="form-label">Student 2:</label>
-            <input type="number" name="Std2" id="student2" /><br /><br />
-            <label for="student3" class="form-label">Student 3:</label>
-            <input type="number" name="Std3" id="student3" /><br /><br />
-            <label for="student4" class="form-label">Student 4:</label>
-            <input type="number" name="Std4" id="student4" /><br /><br />
-            <input type="submit" value="Submit" class="btn btn-dark" />
+    <h1 class="class1 h1">Group project sign-up</h1>
+    <form action="/" id="frm1">
+        <label for="groupMembers" class="form-label">Number of members:</label>
+        <input type="number" name="grpMembers" id="groupMembers" placeholder="number of group members" min="1" max="4"
+            required="true" /><br />
+        
+        <label for="student1" class="form-label">Student 1:</label>
+        <input type="number" name="Std1" id="student1" required="true" /><br /><br />
+        
+        <label for=" student2" class="form-label">Student 2:</label>
+        <input type="number" name="Std2" id="student2" required="true" /><br /><br />
+        
+        <label for="student3" class="form-label">Student 3:</label>
+        <input type="number" name="Std3" id="student3" required="true" /><br /><br />
+        
+        <label for="student4" class="form-label">Student 4:</label>
+        <input type="number" name="Std4" id="student4" /><br /><br />
+        <input type="submit" id="submitBtn" value="Submit" class="btn btn-dark" />
         </form>
-        <br>
-    <table class="table table-bordered">
+    <br />
+    <table class="table table-bordered table-striped"> ">
         <tr class="table-primary">
-            <th>Sr.N0.</th>
+            <th>Group ID.</th>
             <th>Student 1</th>
             <th>Student 2</th>
             <th>Student 3</th>
@@ -55,8 +58,8 @@
         <td>03123453</td>
         <td>01123451</td>
         </tr>
-        </table>
+    </table>
     </div>
-
+    <script src="script.js"></script>
     </body>
 </html>

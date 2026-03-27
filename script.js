@@ -1,48 +1,45 @@
-let buttonePressed = 0;
+const form = document.getElementById("frm1");
 
-function buttonClicked() {
-    buttonePressed++;
-    console.log("Button has been pressed " + buttonePressed + " times.");
-}
-function factorial(n) {
-    if (n === 0 || n === 1) {
-        return 1;
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const groupMembers = parseInt(document.getElementById("groupMembers").value);
+  const student1 = document.getElementById("student1").value.trim();
+  const student2 = document.getElementById("student2").value.trim();
+  const student3 = document.getElementById("student3").value.trim();
+  const student4 = document.getElementById("student4").value.trim();
+
+  // Validate group members
+  if (isNaN(groupMembers) || groupMembers < 1 || groupMembers > 4) {
+    alert("Number of members must be between 1 and 4.");
+    return;
+  }
+
+  // Collect student IDs
+  const students = [student1, student2, student3, student4];
+  const filledStudents = students.filter(s => s !== "");
+
+  // Check if number of filled students matches group members
+  if (filledStudents.length !== groupMembers) {
+    alert(`Number of entered student fields (${filledStudents.length}) does not match the number of members (${groupMembers}).`);
+    return;
+  }
+
+  // Validate each student ID
+  const studentSet = new Set();
+  for (let i = 0; i < filledStudents.length; i++) {
+    const student = filledStudents[i];
+    if (!/^\d{8}$/.test(student)) {
+      alert(`Student ${i+1} ID must be an 8-digit number.`);
+      return;
     }
-    return n * factorial(n - 1);
-    
+    if (studentSet.has(student)) {
+      alert("Duplicate student IDs are not allowed.");
+      return;
     }
+    studentSet.add(student);
+  }
 
-console.log(factorial(5));
-
-
-
-
-
-function showAlert(msg) {
-    alert(msg);
-}
-function myFunction() {
-    let message = prompt("Enter your message:");
-    showAlert(message);
-}
-
-function sum(){
-    let num1 = parseInt(prompt("Enter the first number:"));
-    let num2 = parseInt(prompt("Enter the second number:"));
-    let result = num1 + num2;
-    console.log("The sum is: " + result);
-    console.log(typeof num1);
-    console.log(typeof num2);
-    
-    // alert("The sum is: " + result);
-}
-//sum
-
-function changeHeading() {
-    let headings = document.getElementsByTagName("h1");
-    
-    for (let i = 0; i < headings.length; i++) {
-        let message = prompt("Enter the new heading text:");
-        headings[i].innerText = message;
-    }
-}
+  // If all validations pass
+  alert("Form submitted successfully!");
+  // Here you can proceed with actual submission, e.g., form.submit();
+});
