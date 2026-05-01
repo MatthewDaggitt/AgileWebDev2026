@@ -2,14 +2,17 @@
 <html>
 <head>
     <title>Sign-up Form</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="static/style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
     </head>
 
 <body>
     <div id="halfPage" class="container">
     <h1 class="class1 h1">Group project sign-up</h1>
-    <form action="/" id="frm1">
+    {% if error_message %}
+    <div class="alert alert-danger" role="alert">{{ error_message }}</div>
+    {% endif %}
+    <form action="/newGroup" id="frm1", method="POST">
         <label for="groupMembers" class="form-label">Number of members:</label>
         <input type="number" name="grpMembers" id="groupMembers" placeholder="number of group members" min="1" max="4"
             required="true" /><br />
@@ -37,32 +40,23 @@
             <th>Student 3</th>
             <th>Student 4</th>
         </tr>
-        
+    {% for group in all_groups %}        
         <tr>
-        <td>1</td>
-        <td>00123456</td>
-        <td>00123452</td>
-        <td>00123453</td>
-        <td>00123451</td>
+        <td>{{group.group_id}}</td>
+        <td>{{group.student1}}</td>
+        <td>{{group.student2}}</td>
+        <td>{{group.student3}}</td>
+        <td>{{group.student4}}</td>
+        <td><input type="button" value="Delete" onclick="delete_group({{group.group_id}})"></td>
         </tr>
-
-        <tr>
-        <td>2</td>
-        <td>20123456</td>
-        <td>20123452</td>
-        <td>20123453</td>
-        <td>20123451</td>
-        </tr>
-
-        <tr>
-        <td>3</td>
-        <td>02123456</td>
-        <td>04123452</td>
-        <td>03123453</td>
-        <td>01123451</td>
-        </tr>
+    {% endfor %}
     </table>
     </div>
-    <script src="script.js"></script>
     </body>
+
+    <script>    
+        function delete_group(id) {
+            window.location.href={{url_for(delete_group, group_id=id)}}
+        }
+    </script>
 </html>
