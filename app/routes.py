@@ -2,16 +2,17 @@ from app.models import Group
 
 from flask import render_template, request, redirect, url_for
 
-from app import app, db
+from app import db
+from app.blueprints import main
 
-@app.route('/deleteGroup/<int:group_id>', methods=['POST'])
+@main.route('/deleteGroup/<int:group_id>', methods=['POST'])
 def delete_group(group_id):
     if group_id:
         db.session.query(Group).filter(Group.group_id == group_id).delete()
         db.session.commit()
-    return redirect(url_for('index'))
+    return redirect(url_for('main.index'))
 
-@app.route('/newGroup', methods=['POST'])
+@main.route('/newGroup', methods=['POST'])
 def new_group():
     groups = db.session.query(Group).all()
     
@@ -56,13 +57,13 @@ def new_group():
         )
         db.session.add(new_group)
         db.session.commit()
-        return redirect(url_for('index'))
+        return redirect(url_for('main.index'))
     
-@app.route('/', methods=['GET'])
+@main.route('/', methods=['GET'])
 def index():
     groups = db.session.query(Group).all()
     return render_template('index.html', all_groups=groups)
 
-@app.route('/page')
+@main.route('/page')
 def bootstrap():
     return render_template('bootstrap.html')

@@ -3,13 +3,16 @@ from dataclasses import dataclass
 from typing import Optional
 from app import db
 
+class Student(db.Model):
+    id = db.Column(db.String(8), primary_key=True)
+    surname = db.Column(db.String(50), nullable=False)
+
 class Group(db.Model):
     group_id = db.Column(db.Integer, primary_key=True)
     student1 = db.Column(db.String(8), nullable=False)
     student2 = db.Column(db.String(8), nullable=False)
     student3 = db.Column(db.String(8), nullable=False)
     student4 = db.Column(db.String(8), nullable=True)
-
 
 def create_test_data():
     group1 = Group(
@@ -37,7 +40,7 @@ def create_test_data():
     )
             
 
-    groups = [group1, group2] # group3]
+    groups = [group1, group2, group3]
 
     db.session.add_all(groups)
     db.session.commit()
