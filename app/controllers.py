@@ -47,9 +47,10 @@ def create_new_group(
         return new_group
     
 def check_valid_student(expected_number, student_number, student_id: Optional[str]):
+    # print(expected_number, student_number, student_id, student_id is not None or student_id != '')
     if student_number > expected_number:
-        if student_id is not None:
-            raise ValueError(f"Student {student_number} should not be provided for a group of {expected_number} members.")
+    #     if student_id is not None or student_id != '':
+    #         raise ValueError(f"Student {student_number} should not be provided for a group of {expected_number} members.")
         return
     
     if not student_id:
